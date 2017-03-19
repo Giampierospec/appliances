@@ -1,4 +1,28 @@
+<?php
+//Here we register the user
+$message = "";
+$CI =& get_instance();
+if($_POST){
+  $register = new stdClass();
+  $register->name = $_POST["name"];
+  $register->lastname = $_POST["lastname"];
+  $register->email = $_POST["email"];
+  $register->pass = md5($_POST["pass"]);
 
+  $sql = "select * from user where email = ?";
+  $rs = $CI->db->query($sql,array($register->email));
+  $rs = $rs->result();
+//We check if the user already exists
+  if(count($rs) > 0){
+    $message = "El usuario ya existe intente denuevo";
+  }
+  //Here we insert data to the database if the user is not set
+  else{
+    $CI->db->insert("user",$register);
+    redirect("appliance/login");
+  }
+}
+ ?>
 <div class="jumbotron jb-reduced">
   <div class="row">
     <div class="col-sm-12">
@@ -31,6 +55,26 @@
       </div>
     </div>
   </div>
+  <div id="message"class="alert alert-danger" style="display:none;">
+    <p><?php echo $message ?></p>
+  </div>
+  <!-- In this script i will show the message -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var message = "<?php echo (isset($message)?$message:"") ?>";
+      if(message != ""){
+        $("#message").fadeIn(5000,appendClose).addClass("alert-dismissable fade in");
+      }
+      else{
+        $("#message").hide();
+      }
+    });
+    function appendClose(){
+      var close = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+      $(close).appendTo("#message").fadeIn(5000);
+      $()
+    }
+  </script>
 <script src="<?php echo base_url('') ?>js/loginEffects.js" charset="utf-8"></script>
 
 </div>

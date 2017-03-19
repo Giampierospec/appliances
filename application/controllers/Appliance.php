@@ -34,4 +34,9 @@ class Appliance extends CI_Controller{
     $this->load->view('templates/bottom');
   }
 
+  function logout(){
+    unset($_SESSION['app_user']);
+    redirect('appliance');
+  }
+
 }
