@@ -3,6 +3,14 @@
     <div class="col-sm-12">
       <legend><h2>Ingrese al Sitio</h2></legend>
       <form  class="form-horizontal" action="" method="post">
+        <div class="form-group input-group">
+          <label for="name" class="input-group-addon bg-orange"><i class="fa fa-user" aria-hidden="true"></i> Nombre</label>
+          <input type="text" name="name" placeholder="introduzca su nombre" class="form-control"required />
+        </div>
+        <div class="form-group input-group">
+          <label for="lastname" class="input-group-addon bg-orange"><i class="fa fa-user" aria-hidden="true"></i> Apellido</label>
+          <input type="text" name="lastname" placeholder="introduzca su apellido" class="form-control"required />
+        </div>
           <div class="form-group input-group">
             <label for="email" class="input-group-addon bg-orange"><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
             <input type="text" name="email" placeholder="introduzca su email" class="form-control"required />
@@ -18,7 +26,7 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <a href="<?php echo base_url('register')?>"><p>¿No tiene cuenta? Regístrese aquí</p></a>
+        <a href="<?php echo base_url('appliance')?>"><p>¿Tiene cuenta? Ingrese aquí</p></a>
       </div>
     </div>
   </div>

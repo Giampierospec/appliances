@@ -8,9 +8,13 @@ footer{
   background-color:#e3ae47;
   color: #FFF;
 }
+button.bg-orange:hover, a.bg-orange:hover{
+  background-color:#edd778;
+  color:#fff;
+}
 h1,h2,h3,h4,h5,h6{
-  font-family: 'Baloo Bhaina', cursive;
+  font-family: 'Abril Fatface', cursive;
 }
 p{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inconsolata', monospace;
 }

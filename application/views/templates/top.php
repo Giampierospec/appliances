@@ -18,8 +18,9 @@
 <!-- Animate.css CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <!-- Google fonts for this project -->
-<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina|Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Inconsolata" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/main.css">
+<link rel="stylesheet" href="<?php echo base_url('') ?>css/login.css">
     <title>Registro Electrodomésticos | Tarea 10</title>
   </head>
   <body>
