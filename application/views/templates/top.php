@@ -21,6 +21,7 @@
 <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Oswald" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/main.css">
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/login.css">
+<link rel="stylesheet" href="<?php echo base_url('') ?>/css/appliances.css">
     <title>Registro Electrodomésticos | Tarea 10</title>
   </head>
   <body>

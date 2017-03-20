@@ -1,0 +1,14 @@
+.jb-reduced-appliance{
+  width: 60%;
+  background-color:transparent;
+  border: 1px solid #f6ac06;
+}
+label#photo{
+ cursor: pointer;
+}
+
+#photo{
+ opacity: 0;
+ position: absolute;
+ z-index: -1;
+}
