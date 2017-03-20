@@ -11,7 +11,7 @@ if($_POST){
   $product->color = $_POST['color'];
   $product->comment = $_POST['comment'];
   $photo = $_FILES['photos'];
-  $product->imgPath = "/xampp/htdocs/appliances/appliancePhotos/";
+  $product->imgPath = $_SERVER['DOCUMENT_ROOT'].'/appliances/appliancePhotos/';
   $product->imgContent = $photo['name'];
   $product->idUser = $currentUser->id;
   if($photo['error'] == 0 && ($photo['type'] == 'image/jpeg' || $photo['type'] == 'image/png')){
