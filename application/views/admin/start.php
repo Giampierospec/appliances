@@ -97,7 +97,7 @@ if($_POST){
     <img src="http://signalysis.com/images/kitchen/kitchen.png" class="img-responsive"alt="appliances">
   </div>
 </div>
-
+<h1>Productos de <?php echo $currentUser->name." ".$currentUser->lastname; ?></h1>
 <table class="table table-responsive">
   <thead>
     <tr class="warning">
@@ -111,6 +111,21 @@ if($_POST){
     </tr>
   </thead>
   <tbody>
-
+      <?php
+      $product = getProductByUserId($currentUser->id);
+        foreach ($product as $pr) {
+          $img = base_url('')."appliancePhotos/"."$pr->imgContent";
+            echo "<tr>
+              <td>{$pr->id}</td>
+              <td>{$pr->brand}</td>
+              <td>{$pr->type}</td>
+              <td>{$pr->weight} kg</td>
+              <td>{$pr->color}</td>
+              <td><img src='{$img}' class='img-responsive img-circle little-photo' alt='tu photo'></td>
+              <td>{$pr->comment}</td>
+            </tr>
+            ";
+        }
+       ?>
   </tbody>
 </table>
