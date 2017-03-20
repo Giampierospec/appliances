@@ -127,7 +127,7 @@ if($_POST){
               <td>{$pr->comment}</td>";
               ?>
               <td><a href="#" class="btn btn-default" onclick="confirmationEdit('<?php echo $pr->id?>','<?php echo $pr->brand ?>','<?php echo $pr->date ?>','<?php echo $pr->type ?>','<?php echo $pr->weight ?>','<?php echo $pr->color ?>','<?php echo $pr->comment ?>');"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-              <td><a href="#" class="btn btn-danger" onclick="confirmationDelete('<?php echo $pr->id?>');"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+              <td><a href="#" class="btn btn-danger" onclick="confirmationDelete('<?php echo $pr->id?>','<?php echo $pr->imgContent ?>');"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
               <?php
             echo"</tr>";
         }
@@ -150,13 +150,19 @@ if($_POST){
     var data = JSON.stringify(product);
     localStorage.setItem("savedProducts",data);
   }
-
+//This will redirect me to the editor's view
   function confirmationEdit(idProd, brand, date, type, weight, color, comment){
     if(confirm("¿Seguro que quiere editar esta fila?")){
       prod = new Appliances(brand,date,type,weight,color,comment);
       save(prod);
       window.open("<?php echo base_url('appliance/edit/') ?>"+idProd,"_self");
 
+    }
+
+  }
+  function confirmationDelete(idProd,imgContent){
+    if(confirm("¿Seguro que desea eliminar esta fila?")){
+      window.open("<?php echo base_url('appliance/delete/') ?>"+idProd+"/"+imgContent, "_self");
     }
   }
 </script>

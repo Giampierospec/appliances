@@ -54,4 +54,20 @@ function edit($cod=0){
   $this->load->view('templates/bottom');
 
 }
+
+function delete(){
+  $cod = $this->uri->segment(3);
+  $imgContent = urldecode($this->uri->segment(4));
+  if($cod == 0){
+    redirect("appliance");
+  }
+  $CI =& get_instance();
+  $CI->db->where("id",$cod);
+  $CI->db->delete("product");
+
+  $dir = "C:/xampp/htdocs/appliances/appliancePhotos/".$imgContent;
+  unlink($dir);
+  redirect('appliance');
+}
+
 }
