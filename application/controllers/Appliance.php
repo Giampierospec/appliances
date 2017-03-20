@@ -33,10 +33,25 @@ class Appliance extends CI_Controller{
     $this->load->view('admin/login');
     $this->load->view('templates/bottom');
   }
-
+//Logs out the user from the app
   function logout(){
     unset($_SESSION['app_user']);
     redirect('appliance');
   }
+function edit($cod=0){
+  if ($cod == 0) {
+    redirect("appliance");
+  }
+  $d = array();
+  $d['cod'] = $cod;
 
+  /*First line loads the top template
+    Second line loads the view you want to see A.K.A the content
+    Third Line loads the footer
+  */
+  $this->load->view('templates/top');
+  $this->load->view('admin/edit',$d);
+  $this->load->view('templates/bottom');
+
+}
 }

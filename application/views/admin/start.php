@@ -102,6 +102,7 @@ if($_POST){
   <thead>
     <tr class="warning">
       <th>Codigo</th>
+      <th>Fecha de compra</th>
       <th>Marca</th>
       <th>Tipo</th>
       <th>Peso</th>
@@ -117,15 +118,45 @@ if($_POST){
           $img = base_url('')."appliancePhotos/"."$pr->imgContent";
             echo "<tr>
               <td>{$pr->id}</td>
+              <td>{$pr->date}</td>
               <td>{$pr->brand}</td>
               <td>{$pr->type}</td>
               <td>{$pr->weight} kg</td>
               <td>{$pr->color}</td>
               <td><img src='{$img}' class='img-responsive img-circle little-photo' alt='tu photo'></td>
-              <td>{$pr->comment}</td>
-            </tr>
-            ";
+              <td>{$pr->comment}</td>";
+              ?>
+              <td><a href="#" class="btn btn-default" onclick="confirmationEdit('<?php echo $pr->id?>','<?php echo $pr->brand ?>','<?php echo $pr->date ?>','<?php echo $pr->type ?>','<?php echo $pr->weight ?>','<?php echo $pr->color ?>','<?php echo $pr->comment ?>');"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+              <td><a href="#" class="btn btn-danger" onclick="confirmationDelete('<?php echo $pr->id?>');"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+              <?php
+            echo"</tr>";
         }
        ?>
   </tbody>
 </table>
+
+<script type="text/javascript">
+  //Object to store appliances
+  function Appliances(br,dt,tp,wh,cl,cm){
+    this.brand = br;
+    this.date = dt;
+    this.type = tp;
+    this.weight = wh;
+    this.color = cl;
+    this.comment = cm;
+  }
+  //This will save the product in the localStorage;
+  function save(product){
+    var data = JSON.stringify(product);
+    localStorage.setItem("savedProducts",data);
+  }
+
+  function confirmationEdit(idProd, brand, date, type, weight, color, comment){
+    if(confirm("¿Seguro que quiere editar esta fila?")){
+      prod = new Appliances(brand,date,type,weight,color,comment);
+      save(prod);
+      window.open("<?php echo base_url('appliance/edit/') ?>"+idProd,"_self");
+
+    }
+  }
+</script>

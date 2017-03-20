@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/main.css">
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/login.css">
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/appliances.css">
+<link rel="stylesheet" href="<?php echo base_url('') ?>css/editView.css">
     <title>Registro Electrodomésticos | Tarea 10</title>
   </head>
   <body>
