@@ -166,3 +166,5 @@ if($_POST){
     }
   }
 </script>
+
+<script src="<?php echo base_url('') ?>js/start.js" charset="utf-8"></script>
