@@ -98,7 +98,7 @@ if($_POST){
   </div>
 </div>
 <h1>Productos de <?php echo $currentUser->name." ".$currentUser->lastname; ?></h1>
-<table class="table table-responsive">
+<table class="table table-responsive table-striped">
   <thead>
     <tr class="warning">
       <th>Codigo</th>
